@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let product=[
+  let products=[
     {
     name:"Iphone 16",
     category:"mobile",
@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
           },
 
   ]
-  res.render('index', { product });
+  res.render('index', { products });
 });
 
 module.exports = router;

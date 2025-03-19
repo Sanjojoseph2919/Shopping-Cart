@@ -42,20 +42,19 @@
 
     <div class="container mt-5">
       <div class="row">
+        {{#each products}}
         <div class="col-md-3">
           <div class="card" style="width: 18rem;">
-            <img src="https://suprememobiles.in/cdn/shop/files/1_2ab6c803-16e7-4e9d-8177-09689c589a8a.webp?v=1738819846"
+            <img src="{{this.Image}}"
               class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{this.name}}</h5>
-              <p class="card-text">This is phone good.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p class="card-text">{{this.decription}}</p>
+              <a href="#" class="btn btn-primary">Add To Cart</a>
             </div>
           </div>
         </div>
-
-        
-  
+        {{/each}}
       </div>
     </div>
   </section>
