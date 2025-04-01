@@ -1,9 +1,11 @@
+const mongodb = require('mongodb');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fileUpload = require('express-fileupload');
+var db=require('./config/connection')
 
 // import { engine } from 'express-handlebars';
 var {engine} = require('express-handlebars');
@@ -43,8 +45,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(fileUpload());
+
+db.connect((err)=>{
+  if(err) console.log("Connection Error"+err)
+  else console.log("Datebase Connection to port 27017")
+})
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
