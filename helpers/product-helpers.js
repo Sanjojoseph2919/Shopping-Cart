@@ -1,11 +1,12 @@
 // var db=require('../config/connection')
+// const db = require('../config/connection');
 // module.exports={
 
 //     addProduct:(product,callback)=>{
 //         console.log(product);
 
-//         // let db = require('../config/connection'); 
-//         //  let productCollection = db.get().collection('product');
+//         let db = require('../config/connection'); 
+//          let productCollection = db.get().collection('product');
 
 
 //         db.get().collection('product').insertOne(product).then((data)=>{

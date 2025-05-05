@@ -46,8 +46,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(fileUpload());
 
-app.use('/public', express.static('public'));
-
 db.connect((err)=>{
   if(err) console.log("Connection Error"+err)
   else console.log("Datebase Connection to port 27017")
