@@ -5,6 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fileUpload = require('express-fileupload');
+
 var db=require('./config/connection')
 
 // import { engine } from 'express-handlebars';
@@ -22,15 +23,30 @@ app.set('view engine', 'hbs');
 
 const hbs = require('express-handlebars');
 
-app.engine(
-  'hbs',
-  hbs.engine({
-    extname: 'hbs',
-    defaultLayout: 'layout',
-    layoutsDir: __dirname + '/views/layout/',
-    partialsDir: __dirname + '/views/partials/',
-  })
-);
+
+app.engine('hbs', hbs.engine({
+  extname: 'hbs',
+  defaultLayout: 'layout',
+  layoutsDir: __dirname + '/views/layout/',
+  partialsDir: __dirname + '/views/partials/',
+  helpers: {
+    inc: function (value) {
+      return parseInt(value) + 1;
+    }
+  }
+}));
+
+
+// app.engine(
+//   'hbs',
+//   hbs.engine({
+//     extname: 'hbs',
+//     defaultLayout: 'layout',
+//     layoutsDir: __dirname + '/views/layout/',
+//     partialsDir: __dirname + '/views/partials/',
+    
+//   })
+// );
 
 //app.engine('hbs',hbs({extname:'hbs',defaultLayout:'layout',layoutsDir:__dirname+'/views/layout/',partialsDir:__dirname+'/viwes/partials/'}))
 
