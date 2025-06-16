@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
     console.log(products)
     res.render('admin/views-products', { admin: true, products });
   })
- 
-
+  
 });  
 
 
